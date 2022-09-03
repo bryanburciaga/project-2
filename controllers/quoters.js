@@ -7,6 +7,8 @@ const router = express.Router();
 // INDUCES
 
 // INDEX
-router.get('/quoter', (req, res) => {
-    res.render('quoter/index.ejs');
-});
+// router.get('/quoter', (req, res) => {
+//     res.render('quoter/index.ejs');
+// });
+
+// module.exports =router;

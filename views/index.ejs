@@ -7,19 +7,25 @@
     <link rel="stylesheet" href="/css/index.css">
     <title>Quoter</title>
 </head>
+<nav>
+    <p> <%= new Date().getFullYear() %></p>
+    <!-- <div class="login">
+        <label>Log in</label><br>
+        <label>Log out</label><br> -->
+</nav>
+<h1>Quoter</h1><hr>
+<div class="box">
 <body>
-    <h1>Quoter</h1>
-    <hr>
+   
     <form action="/quoter">
         <div class="container">
         <div class="containerone">
         <ul>
-            <label>Product
-            </label> 
+            <label>Product</label> 
             <label>Qty</label> 
             <label>Price</label> 
             <label>Total</label> 
-        </ul>
+        </ul><hr>
         <div class="containertwo">
         <select name="product">
             <option value="Product 1">Product 1</option>
@@ -28,15 +34,31 @@
             <option value="Product 4">Product 4</option>
             <option value="Product 5">Product 5</option>
         </select>
-        <input type="box">
-        <label>$</label>
-        <label></label>
-        <label><button>edit</button></label>
-        <label><button>x</button></label>
+        
+            <input type="box" placeholder="Qty">
+        
+                <label>$</label>
+                <label>$</label>
+                <label></label>
+        <div class="editButtons">
+            <label><button>edit</button></label>
+            <label><button>x</button></label>
+        </div>
         </div>
         </div>
     </div>
-        <button>Add a product</button>
-    </form>
+    <div class="button">
+    <button id="addButton">Add a product</button>
+</div>    
+</form>
+<div class="print">
+    <button>Print</button>
+</div>
+    <footer>
+        <hr><p>Copyright &copy; All Rights Reserved Booklist <%= new Date().getFullYear() %></p>
+    </footer>
+    
+    </div>
 </body>
+
 </html>
