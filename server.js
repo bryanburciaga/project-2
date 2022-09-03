@@ -6,6 +6,12 @@ PORT = process.env.PORT
 
 const app = express();
 
+app.use(express.static('public'));
+
+// Homepage Route
+app.get('/quoter', (req, res) => {
+    res.render('index.ejs');
+});
 // mongoose.connect(DATABASE_URI)
 
 // const db = mongoose.connecting;
