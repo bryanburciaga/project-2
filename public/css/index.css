@@ -15,7 +15,7 @@ hr {
     line-height: 1.5em;
     
 }
-.container {
+/* .container {
     margin: 0;
     background-color: #FBDD8E; 
     border-radius: 20px;
@@ -23,16 +23,20 @@ hr {
     border-width: 1px;
     border-style: solid;
     border-color: black;
+    text-align: center;
+    display: flex;
+    word-spacing: 5em;
+} */
+
+table {
+    width: 100%;
+    border-radius: 10px;
+    padding: 3px 3px 3px 3px;
+    background-color: #fbdd83;
+    border:1px solid black;
+    text-align: center;
 }
-.containerone {
-    text-align: center; 
-    margin: 20px; 
-    word-spacing: 10em;
-    padding: 0 0 0 0;
-}
-.containertwo{
-    word-spacing: 7em;
-}
+
 .button {
    text-align: end;
    padding: 20px;
@@ -49,10 +53,14 @@ footer {
     margin: 0 0 5px 0;
 }
 .editButtons {
-   text-align: end;
+   text-align: center;
     word-spacing: 1em;
 }
 .priceBox {
     width: fit-content;
     width: 50%;
+}
+nav {
+    background-color: #06d6a0;
+    width: 100%;
 }

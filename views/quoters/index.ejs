@@ -4,10 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
     <title>Quoter</title>
 </head>
+<nav>
+    <p> <%= new Date().getFullYear() %></p>
+    <!-- <div class="login">
+        <label>Log in</label><br>
+        <label>Log out</label><br> -->
+        <strong>To-Do App</strong>
+</nav>
+<h1>Quoter</h1><hr>
+<div class="box">
 <body>
-    <h1>Quoter</h1>
+   
+    <form action="/quoter">
+        <div class="containerOne">
+            <table>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td> <%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %> </td>
+                <td> <select name="product">
+                    <option value="Product 1">Product 1</option>
+                    <option value="Product 2">Product 2</option>
+                    <option value="Product 3">Product 3</option>
+                    <option value="Product 4">Product 4</option>
+                    <option value="Product 5">Product 5</option>
+                </select></td>
+                <td><input type="box" placeholder="Qty"></td>
+                <td>$</td>
+                <td>$</td>
+                <td>
+                    <div class="editButtons">
+                    <button>edit</button>
+                    <button>x</button>
+                </div>
+            </div>
+        </div>
+                </td>
+              </tr>
+
+              <a href="/quoter/new">Add to my list</a>
+</div>    
+</form>
+<div class="print">
+    <button>Print</button>
+</div>
+    <footer>
+        <hr><p>Copyright &copy; All Rights Reserved Booklist <%= new Date().getFullYear() %></p>
+    </footer>
     
+    </div>
 </body>
+
 </html>
