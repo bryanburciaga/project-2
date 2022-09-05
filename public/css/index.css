@@ -53,7 +53,7 @@ footer {
     margin: 0 0 5px 0;
 }
 .editButtons {
-   text-align: center;
+   text-align:  end;
     word-spacing: 1em;
 }
 .priceBox {

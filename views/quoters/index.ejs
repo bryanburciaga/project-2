@@ -9,60 +9,90 @@
 </head>
 <nav>
     <p> <%= new Date().getFullYear() %></p>
+    <label><strong>To-Do App</strong></label><br>
+    <a href="/">Back to Main Page</a>
     <!-- <div class="login">
         <label>Log in</label><br>
         <label>Log out</label><br> -->
-        <strong>To-Do App</strong>
+       
 </nav>
 <h1>Quoter</h1><hr>
 <div class="box">
 <body>
+    <main>
+    <p>Date: <%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %></p>
+    <p>Quote for:
+         <input type="box" placeholder="name of the requester">
+        <input type="submit"></p>
    
-    <form action="/quoter">
+    
         <div class="containerOne">
             <table>
             <tr>
-                <th>Id</th>
-                <th>Date</th>
+                <th>Number</th>
                 <th>Product</th>
                 <th>Qty</th>
                 <th>Price</th>
                 <th>Total</th>
               </tr>
               <tr>
+                <% products.forEach(product => { %>
+                   
+                        <a href="/quoters/<%= product._id %>">
+                
                 <td></td>
-                <td> <%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %> </td>
-                <td> <select name="product">
-                    <option value="Product 1">Product 1</option>
-                    <option value="Product 2">Product 2</option>
-                    <option value="Product 3">Product 3</option>
-                    <option value="Product 4">Product 4</option>
-                    <option value="Product 5">Product 5</option>
-                </select></td>
-                <td><input type="box" placeholder="Qty"></td>
-                <td>$</td>
-                <td>$</td>
+                <td>  
+                     <%= product.product %>
+                </td>
                 <td>
-                    <div class="editButtons">
-                    <button>edit</button>
-                    <button>x</button>
-                </div>
+                    <%= product.qty %>
+                </td>
+         
+                <td> <%= product.price %></td>
+                <td>
             </div>
         </div>
                 </td>
               </tr>
+              <% }); %>
 
-              <a href="/quoter/new">Add to my list</a>
+
+              <a href="/quoter/new">Add product</a>
+              <br />
+              <!-- <a href="#">Reset</a>
+              <br />
+              <br />
+              <form>
+                <select id="addFormProduct">
+                    <option>Product 1</option>
+                </select>
+                <input id="addFormInput" type="number" value="Quantity"/>
+              </form>
+              <button onclick="save();">Add new product</button> -->
+              
 </div>    
 </form>
 <div class="print">
-    <button>Print</button>
+    <button>
+        print
+    </button>
 </div>
     <footer>
         <hr><p>Copyright &copy; All Rights Reserved Booklist <%= new Date().getFullYear() %></p>
     </footer>
     
     </div>
+
+    <!-- <script>
+        const existing = window.localStorage.getItem("products")
+
+        const newProduct = [{ product: 'product 1', qty: 200 }]
+
+        const allProducts = [...JSON.parse(existing), newProduct]
+        
+        window.localStorage.setItem("products", JSON.stringify(allProducts))
+
+    </script> -->
 </body>
 
 </html>

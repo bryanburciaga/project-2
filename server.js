@@ -1,14 +1,14 @@
 // dependencies
 const express = require('express');
 const mongoose = require('mongoose');
-
+const Product = require('./models/quoter')
 
 // initialize the app
 const app = express();
 
 require('dotenv').config();
 
-PORT = process.env.PORT
+const PORT = process.env.PORT
 const DATABASE_URI = process.env.DATABASE_URI;
 const db = mongoose.connection;
 
@@ -35,12 +35,29 @@ app.get('/', (req, res) => {
 
 // INDEX
 app.get('/quoter', (req, res) => {
-    res.render('quoters/index.ejs');
+    Product.find({}, (err, products) => {
+        console.log(products)
+    res.render('quoters/index.ejs', {
+        'products': products
+        });
+    });
 });
 
 // NEW
 app.get('/quoter/new', (req, res) => {
-    res.render('quoters/new.ejs');
+    Product.find({}, (err, products) => {
+    //     console.log(products)
+    res.render('quoters/new.ejs', {
+        'products': products
+        });
+    });
+});
+
+// CREATE
+app.post('/quoter', (req, res) => {
+    Product.create(req.body, (err, createdProduct) => {
+        res.redirect('/quoter')
+    });
 });
 
 // SHOW
@@ -50,4 +67,17 @@ app.get('/quoter/new', (req, res) => {
 // tell the app to listen
 app.listen(PORT, (req, res) => {
     console.log(`I'm listening on port: ${PORT}`);
+});
+
+// SEED
+app.get('/seed', (req, res) => {
+    const data = require('./data.json');
+
+    // first: delete the books collection
+    Product.deleteMany({}, (err, result) => {
+        // second: add new books to the collection
+        Product.insertMany(data, (err, result) => {
+            res.redirect('/');
+        });
+    });
 });
