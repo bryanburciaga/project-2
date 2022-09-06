@@ -11,11 +11,22 @@
     <h1>Sales</h1>
     <table>
         <tr>
-            <th>Number of Sales</th>
+            <th>Number of Sale</th>
             <th>Product</th>
             <th>Qty</th>
             <th>Price</th>
             <th>Total</th>
+        </tr>
+            <td><% sales.forEach(s => { %>
+                <li>
+                    <a href="/sales/<%= s._id%>">
+                        <%= s.product %>
+                    </a>
+                </li>
+           <% }); %>
+        </td>
+        <tr>
+
         </tr>
     </table>
     <form action="/sales/new">

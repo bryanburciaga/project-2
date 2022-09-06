@@ -1,24 +1,24 @@
-[
-    {
-        "product": "product 1",
-        "price": 37
-    },
-    {
-        "product": "product 2",
-        "price": 50
+// [
+//     {
+//         "product": "product 1",
+//         "price": 37
+//     },
+//     {
+//         "product": "product 2",
+//         "price": 50
         
-    },
-    {
-        "product": "product 3",
-        "price": 65
-    }, 
-    {
-        "product": "product 4",
-        "price": 37
+//     },
+//     {
+//         "product": "product 3",
+//         "price": 65
+//     }, 
+//     {
+//         "product": "product 4",
+//         "price": 37
        
-    },
-    {
-        "product": "product 5",
-        "price": 80
-    }
-]
+//     },
+//     {
+//         "product": "product 5",
+//         "price": 80
+//     }
+// ]

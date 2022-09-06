@@ -4,12 +4,25 @@ const Sale = require('../models/quoter');
 
 // INDEX
 router.get('/sales', (req, res) => {
-
-    // Book.find({}, (err, books) => {
-        res.render('sales/index.ejs');
-            // 'books': books 
-     
+    Sale.find({}, (err, sales) => {
+        res.render('sales/index.ejs', {
+            'sales': sales 
+        });
     });
-// });
+});
+
+// NEW
+
+router.get('/sales/new', (req, res) => {
+    res.render('sales/new.ejs');
+});
+
+// CREATE
+router.post(('/sales'), (req, res) => {
+   Sale.create(req.body, (err, createdSale) => {
+    res.send(createdSale);
+   });    
+});
+
 
 module.exports = router;

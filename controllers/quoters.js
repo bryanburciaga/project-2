@@ -2,18 +2,18 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/quoter');
 
-// SEED
-router.get('/seed', (req, res) => {
-    const data = require('./data.json');
+// // SEED
+// router.get('/seed', (req, res) => {
+//     const data = require('./data.json');
 
-    // first: delete the books collection
-    Product.deleteMany({}, (err, result) => {
-        // second: add new books to the collection
-        Product.insertMany(data, (err, result) => {
-            res.redirect('/');
-        });
-    });
-});
+//     // first: delete the books collection
+//     Product.deleteMany({}, (err, result) => {
+//         // second: add new books to the collection
+//         Product.insertMany(data, (err, result) => {
+//             res.redirect('/');
+//         });
+//     });
+// });
 
 router.get('/', (req, res) => {
     res.render('index.ejs');
