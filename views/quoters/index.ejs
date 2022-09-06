@@ -37,22 +37,23 @@
               </tr>
               <tr>
                 <% products.forEach(product => { %>
-                   
+                    
+                    <td></td>
+                    <td>
                         <a href="/quoters/<%= product._id %>">
-                
-                <td></td>
-                <td>  
-                     <%= product.product %>
+                            <%= product.product %>
+                        </a>   
                 </td>
                 <td>
                     <%= product.qty %>
                 </td>
          
-                <td> <%= product.price %></td>
+                <td>$ <%= product.price %></td>
                 <td>
             </div>
         </div>
-                </td>
+        <td></td>
+        <td>
               </tr>
               <% }); %>
 
