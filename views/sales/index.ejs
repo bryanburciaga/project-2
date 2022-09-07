@@ -11,23 +11,28 @@
     <h1>Sales</h1>
     <table>
         <tr>
+            <th>Date</th>
             <th>Number of Sale</th>
             <th>Product</th>
             <th>Qty</th>
             <th>Price</th>
             <th>Total</th>
         </tr>
-            <td><% sales.forEach(s => { %>
-                <li>
-                    <a href="/sales/<%= s._id%>">
-                        <%= s.product %>
-                    </a>
-                </li>
-           <% }); %>
-        </td>
         <tr>
-
+            <ol>
+            <% sales.forEach((s, i) => { %>
+           <td><%= s.date %></td>
+           <td><%= i + 1  %></td>
+                <td><a href="/sales/<%=s._id%>">
+                    <%= s.product %>
+                </a></td>
+                    <td><%=s.qty%></td>
+                    <td>$<%=s.price%></td>
+                    <td>$<%=s.qty * s.price%></td>
+                    <% }); %>
+                </ol>
         </tr>
+    
     </table>
     <form action="/sales/new">
     <button>Create a Sale</button>

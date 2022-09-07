@@ -1,16 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const Sale = require('../models/quoter');
+const Sale = require('../models/sale');
 
 // INDEX
 router.get('/sales', (req, res) => {
     Sale.find({}, (err, sales) => {
         res.render('sales/index.ejs', {
-            'sales': sales 
-        });
+            'sales': sales
     });
 });
-
+});
 // NEW
 
 router.get('/sales/new', (req, res) => {
@@ -20,9 +19,18 @@ router.get('/sales/new', (req, res) => {
 // CREATE
 router.post(('/sales'), (req, res) => {
    Sale.create(req.body, (err, createdSale) => {
-    res.send(createdSale);
+    res.redirect('/sales');
    });    
 });
+
+// SHOW
+router.get('/sales/:id', (req, res) => {
+    Sale.findById(req.params.id, (err, foundSale) => {
+        res.render('sales/show.ejs', { sale: foundSale })
+    });
+});
+
+
 
 
 module.exports = router;
