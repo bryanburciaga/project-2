@@ -1,4 +1,6 @@
+// DEPENDENCIES
 const express = require('express');
+const { findOneAndDelete } = require('../models/sale');
 const router = express.Router();
 const Sale = require('../models/sale');
 
@@ -7,13 +9,21 @@ router.get('/sales', (req, res) => {
     Sale.find({}, (err, sales) => {
         res.render('sales/index.ejs', {
             'sales': sales
+         });
     });
 });
-});
-// NEW
 
+// NEW
 router.get('/sales/new', (req, res) => {
     res.render('sales/new.ejs');
+});
+
+// DELETE
+router.delete('/sales/:id', (req, res) => {
+Sale.findByIdAndDelete(req.params.id, (err, deletedSale) => {
+    console.log(deletedSale)
+    res.redirect('/sales');
+    });
 });
 
 // CREATE
