@@ -7,6 +7,9 @@
     <title>Edit the product</title>
 </head>
 <body>
+    <nav>
+        <%- include('./partials/nav.ejs') %>
+    </nav>
     <a href="/">Back to Main Page</a>
     <h1>Edit the product</h1>
     <form action="/sales/<%= sale._id %>?_method=PUT" method="POST">
