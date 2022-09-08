@@ -7,13 +7,17 @@
     <title>Product</title>
 </head>
 <body>
-    <h1><%= product.product %></h1>
-    <p><%= product.price %></p>
+    <a href="/">Back to Main Page</a>
+    <H1>Product</H1>
+    <p>Product:<%= product.product %></p>
+    <p>Price:<%= product.price %></p>
+    <p>Qty:<%= product.qty %></p>
+    <p>Date: <strong><%= product.date %></strong></p>
   
-    <div class="editButtons">
-        <button>edit</button>
-        <button>x</button>
-    </div>
-    
+<form action="/quoter/<%= product._id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete this product">
+</form>
+
+<a href="/quoter">Back to quoter</a>
 </body>
 </html>

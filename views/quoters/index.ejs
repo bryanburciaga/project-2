@@ -11,10 +11,6 @@
     <p> <%= new Date().getFullYear() %></p>
     <label><strong>To-Do App</strong></label><br>
     <a href="/">Back to Main Page</a>
-    <!-- <div class="login">
-        <label>Log in</label><br>
-        <label>Log out</label><br> -->
-       
 </nav>
 <h1>Quoter</h1><hr>
 <div class="box">
@@ -29,35 +25,28 @@
         <div class="containerOne">
             <table>
             <tr>
-                <th>Number</th>
+                <th>Date</th>
+                <th>Number of Product</th>
                 <th>Product</th>
                 <th>Qty</th>
                 <th>Price</th>
                 <th>Total</th>
               </tr>
               <tr>
-                <% products.forEach(product => { %>
+                <% products.forEach((product, i) => { %>
                     
-                    <td></td>
-                    <td>
-                        <a href="/quoters/<%= product._id %>">
+                    <td> <%= product.date %> </td>
+                    <td> <%= i + 1 %> </td>
+                    <td><a href="/quoters/<%= product._id %>">
                             <%= product.product %>
-                        </a>   
-                </td>
-                <td>
-                    <%= product.qty %>
-                </td>
-         
+                        </a></td>
+                <td><%= product.qty %></td>
                 <td>$ <%= product.price %></td>
-                <td>
+                <td>$ <%= product.price * product.qty %></td>
+                <% }); %>  
             </div>
         </div>
-        <td></td>
-        <td>
               </tr>
-              <% }); %>
-
-
               <a href="/quoter/new">Add product</a>
               <br />
               <!-- <a href="#">Reset</a>

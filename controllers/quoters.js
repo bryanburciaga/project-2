@@ -1,20 +1,11 @@
+// Dependencies
 const express = require('express');
+const { findOneAndDeLete } = require('../models/quoter');
 const router = express.Router();
 const Product = require('../models/quoter');
 
-// // SEED
-// router.get('/seed', (req, res) => {
-//     const data = require('./data.json');
 
-//     // first: delete the books collection
-//     Product.deleteMany({}, (err, result) => {
-//         // second: add new books to the collection
-//         Product.insertMany(data, (err, result) => {
-//             res.redirect('/');
-//         });
-//     });
-// });
-
+// Home page
 router.get('/', (req, res) => {
     res.render('index.ejs');
 });
@@ -40,7 +31,12 @@ router.get('/quoter/new', (req, res) => {
 });
 
 // DELETE
-
+router.delete('/quoter/:id', (req, res) => {
+    Product.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
+        console.log(deletedProduct)
+        res.redirect('/quoter');
+    });
+});
 // UPDATE
 
 // CREATE
@@ -53,11 +49,11 @@ router.post('/quoter', (req, res) => {
 // EDIT 
 
 
-// // SHOW
-// router.get('/:id', (req, res) => {
-//     Product.findById(req.params.id, (err, foundProduct) => {
-//         res.render('quoters/show.ejs', { product: foundProduct })
-//     });
-// });
+// SHOW
+router.get('/quoters/:id', (req, res) => {
+    Product.findById(req.params.id, (err, foundProduct) => {
+        res.render('quoters/show.ejs', { product: foundProduct })
+    });
+});
 
 module.exports = router;
