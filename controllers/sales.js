@@ -21,8 +21,15 @@ router.get('/sales/new', (req, res) => {
 // DELETE
 router.delete('/sales/:id', (req, res) => {
 Sale.findByIdAndDelete(req.params.id, (err, deletedSale) => {
-    console.log(deletedSale)
+        console.log(deletedSale);
     res.redirect('/sales');
+    });
+});
+
+// UPDATE
+router.put('/sales/:id', (req,res) => {
+    Sale.findOneAndUpdate(req.params.id, req.body, (err, oldSaleVersion) => {
+        res.redirect('/sales/' + req.params.id);
     });
 });
 
@@ -31,6 +38,15 @@ router.post(('/sales'), (req, res) => {
    Sale.create(req.body, (err, createdSale) => {
     res.redirect('/sales');
    });    
+});
+
+// EDIT 
+router.get('/sales/:id/edit', (req, res) => {
+    Sale.findById(req.params.id, (err, foundSale) => {
+        res.render('sales/edit.ejs', {
+            sale: foundSale
+        });
+    });
 });
 
 // SHOW
