@@ -14,7 +14,7 @@
 <div class="box">
 <body>
     <main>
-    <p>Date: <%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %></p>
+    
     <p>Quote for:
          <input type="box" placeholder="name of the requester">
         <input type="submit"></p>
@@ -65,12 +65,10 @@
         print
     </button>
 </div>
-    <footer>
-        <hr><p>Copyright &copy; All Rights Reserved Booklist <%= new Date().getFullYear() %></p>
-    </footer>
+ 
     
     </div>
-
+    <%- include('../partials/footer.ejs') %> 
     <!-- <script>
         const existing = window.localStorage.getItem("products")
 

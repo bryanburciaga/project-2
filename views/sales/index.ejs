@@ -10,7 +10,7 @@
     <nav>
         <%- include('../partials/nav.ejs') %>
     </nav>
-    <a href="/">Back To Main Page</a>
+ 
     <h1>Sales</h1>
     <table>
         <tr>
@@ -21,8 +21,9 @@
             <th>Price</th>
             <th>Total</th>
         </tr>
+        <ul></ul>
         <tr>
-            <ol>
+            
             <% sales.forEach((s, i) => { %>
            <td><%= s.date %></td>
            <td><%= i + 1  %></td>
@@ -33,8 +34,9 @@
                     <td>$<%=s.price%></td>
                     <td>$<%=s.qty * s.price%></td>
                     <% }); %>
-                </ol>
+                
         </tr>
+    </ol>
     </table>
     <label>Total:
     </label>
@@ -42,5 +44,6 @@
     <form action="/sales/new">
     <button>Create a Sale</button>
 </form>
+<%- include('../partials/footer.ejs') %> 
 </body>
 </html>

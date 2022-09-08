@@ -1,0 +1,17 @@
+.containerOne, .containerTwo {
+    border-radius: 20px;
+    border-color: black;
+  
+    border-width: 1px;
+    border-style: solid;
+    width: fit-content;
+    text-align: center;
+    background-color: antiquewhite;
+    margin: 0;
+    padding: 20px 10px; 
+    line-height: 1.5em;
+}
+.containerOne {
+    text-align: center;
+
+}

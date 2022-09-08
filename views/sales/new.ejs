@@ -10,7 +10,7 @@
     <nav>
         <%- include('../partials/nav.ejs') %>
     </nav>
-    <a href="'/">Back to main Page</a>
+    
     <h1>New Sale</h1>
     <form action="/sales" method="POST">
     <label>Product
@@ -25,5 +25,6 @@
             <input type="submit" value="Add Sale">
         
     </form>
+    <%- include('../partials/footer.ejs') %> 
 </body>
 </html>
