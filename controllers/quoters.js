@@ -1,6 +1,7 @@
 
 // Dependencies
 const express = require('express');
+const { get } = require('mongoose');
 const { findOneAndDeLete } = require('../models/quoter');
 const router = express.Router();
 const Product = require('../models/quoter');
@@ -59,6 +60,12 @@ router.delete('/quoter/:id', (req, res) => {
     });
 });
 // UPDATE
+router.put('/quoter/:id', (req, res) => {
+    Product.findOneAndUpdate(req.params.id, req.body, (err, oldProduct) => {
+        res.redirect('/quoter/' + req.params.id); 
+        });
+    });
+
 
 // CREATE
 router.post('/quoter', (req, res) => {
@@ -68,14 +75,16 @@ router.post('/quoter', (req, res) => {
 });
 
 // EDIT 
-router.get('/quoter', (req, res) => {
+router.get('/quoter/:id/edit', (req, res) => {
     Product.findById(req.params.id, (err, foundProduct) => {
-        res.render('quoters/edit.ejs');
+        res.render('quoters/edit.ejs', {
+            product: foundProduct
+        });
     });
 });
 
 // SHOW
-router.get('/quoters/:id', (req, res) => {
+router.get('/quoter/:id', (req, res) => {
     Product.findById(req.params.id, (err, foundProduct) => {
         res.render('quoters/show.ejs', { product: foundProduct })
     });
