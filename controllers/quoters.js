@@ -34,10 +34,17 @@ router.get('/quoter', async (req, res) => {
         return total;
     });
 
+    const taxes = products.map(products => {
+        const taxes = ((products.price * products.qty) * .16);
+        return taxes;
+    });
+    
+    const grandTaxes = taxes.reduce((partialSum, a) => partialSum + a, 0);
     const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
     res.render('quoters/index.ejs', {
         'products': products,
-        'total': grandTotal
+        'total': grandTotal,
+        'taxes': grandTaxes
         });
     });
 
@@ -70,7 +77,7 @@ router.put('/quoter/:id', (req, res) => {
 // CREATE
 router.post('/quoter', (req, res) => {
     Product.create(req.body, (err, createdProduct) => {
-        res.redirect('/quoter')
+        res.redirect('/quoter');
     });
 });
 

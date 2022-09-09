@@ -25,7 +25,7 @@
         
             <% sales.forEach((s, i) => { %>
                 <tr>
-           <td><%= s.date %></td>
+           <td>Date:<%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %> </td>
            <td><%= i + 1  %></td>
                 <td><a href="/sales/<%=s._id%>">
                     <%= s.product %>
@@ -36,8 +36,6 @@
                 </tr>
                     <% }); %>
     </table>
-    <label>Total: <%= total %>
-    </label>
 
     <form action="/sales/new">
     <button>Create a Sale</button>

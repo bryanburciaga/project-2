@@ -28,9 +28,8 @@ hr {
 } */
 
 table {
-    width:fit-content;
-    padding: 3px 6px 3px 3px;
-    border:1px solid black;
+    width: 100%;
+    padding: 3px 6px 3px 1px;
     text-align: center;
 }
 
@@ -40,7 +39,6 @@ table {
 }
 
 .print {
-    
     text-align: center;
     margin: 0 0 10px 0;
     bottom: 0;
@@ -51,8 +49,5 @@ table {
 }
 .totals {
     text-align: end;
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
-    margin: auto;
+
 }

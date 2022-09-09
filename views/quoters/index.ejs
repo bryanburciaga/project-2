@@ -23,12 +23,11 @@
 <body>
     
     <div class="containerOne" id="pdf-area">
-        <%- include('../partials/nav.ejs') %>
-        <p>Quote for:</p>
+        <img src="https://i.imgur.com/QuS0A2q.jpg" alt=""  width="50" height="50">
+        <p>Quote for: </p>
         <table>
-            
-            <th>Number of Product</th>
-            <th>Date</th>
+            <th>ID</th>
+            <th># of Product</th>
             <th>Product</th>
             <th>Qty</th>
             <th>Price</th>
@@ -36,21 +35,19 @@
             
             <% products.forEach((product, i) => { %>
                 <tr>
-                    
+                    <td><%= product._id%></td>
                     <td> <%= i + 1 %> </td>
-                    <td> <%= product.date %> </td>
                     <td><a href="/quoter/<%= product._id %>">
                         <%= product.product %>
-                    </a></td>
                     <td><%= product.qty %></td>
                     <td>$ <%= product.price %></td>
                     <td>$ <%= product.price * product.qty %></td>
                     <% }); %>  
                 </table>
                 <div class="totals">
-                    <label>Subotal: </label><br>
-                    <label>Taxes: </label><br>
-                    <label>Total: <%= total %> </label><br>
+                    <label><strong>Subotal: </strong> <%= total %> </label><br>
+                    <label><strong> Taxes: </strong> <%= taxes %></label><br>
+                    <label><strong> Total: </strong>  <%= total + taxes %> </label><br>
                 </div>
             </div>
             <a href="/quoter/new">
