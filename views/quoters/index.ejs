@@ -14,14 +14,17 @@
 </nav>
 <h1>Quoter</h1><hr>
 <p>Quote for:
-     <input type="box" placeholder="name of the requester">
+    <form action="/quoter" method="POST">
+    <input type="box" placeholder="name of the requester">
     <input type="submit"></p>
-
+    </form>
+    
 <div class="box">
 <body>
     
     <div class="containerOne" id="pdf-area">
         <%- include('../partials/nav.ejs') %>
+        <p>Quote for:</p>
         <table>
             
             <th>Number of Product</th>
@@ -43,19 +46,22 @@
                     <td>$ <%= product.price %></td>
                     <td>$ <%= product.price * product.qty %></td>
                     <% }); %>  
-                    <a href="/quoter/new">Add product</a>
                 </table>
-                <label>Total: <%= total %></label>
-                <div class="print">
-                    <button onclick="downloadPDF()">
-                        print
-                    </button>
+                <div class="totals">
+                    <label>Subotal: </label><br>
+                    <label>Taxes: </label><br>
+                    <label>Total: <%= total %> </label><br>
                 </div>
             </div>
+            <a href="/quoter/new">
+                <input type="submit" value="Add a product">
+            </a>
+            <div class="print">
+            <button onclick="downloadPDF()">
+                print
+            </button>
         </div>
-    </tr>
-    
-    <br />
+    </div>
     <!-- <a href="#">Reset</a>
               <br />
               <br />
