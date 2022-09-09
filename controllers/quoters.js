@@ -7,31 +7,39 @@ const Sale = require('../models/sale');
 
 
 // Home page
-router.get('/', async (req, res) => {
-    const sales = await Sale.find({});
+router.get('/', /*async*/(req, res) => {
+    // const sales = await Sale.find({});
 
-    const totals = sales.map(sale => {
-        const total = sale.price * sale.qty;
+    // const totals = sales.map(sale => {
+    //     const total = sale.price * sale.qty;
+    //     return total;
+    // });
+
+    // const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
+
+    res.render('index.ejs');/*,{
+        total: grandTotal,
+        itemsCount: totals.length
+    });*/
+});
+
+// INDEX
+router.get('/quoter', async (req, res) => {
+    const product = await Product.find({});
+
+    const totals = product.map(product => {
+        const total = product.price * product.qty;
         return total;
     });
 
     const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
-
-    res.render('index.ejs',{
-        total: grandTotal,
-        itemsCount: totals.length
-    });
-});
-
-// INDEX
-router.get('/quoter', (req, res) => {
-    Product.find({}, (err, products) => {
-        console.log(products)
     res.render('quoters/index.ejs', {
-        'products': products
+        'products': product,
+        'total': grandTotal,
+        'itemsCount': totals.length
         });
     });
-});
+
 
 // NEW
 router.get('/quoter/new', (req, res) => {

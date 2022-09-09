@@ -8,9 +8,7 @@
     box-sizing: border-box;
     border-bottom: 1px solid #eee;
 }
-img, h1, h5 {
-    flex-direction: row;
-}
+
 img { 
     border-radius: 60px;
 }

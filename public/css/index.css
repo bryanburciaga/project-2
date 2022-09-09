@@ -6,14 +6,13 @@ hr {
 }
 .box {
     border-radius: 20px;
-    height: 500px;
+    height: fit-content;
     border-width: 1px;
     border-style: solid;
     border-color: black;
     margin: 0;
-    padding: 20px 10px; 
-    line-height: 1.5em;
-    
+    padding: 20px; 
+    line-height: 1.5em; 
 }
 /* .container {
     margin: 0;
@@ -29,10 +28,8 @@ hr {
 } */
 
 table {
-    width: 100%;
-    border-radius: 10px;
-    padding: 3px 3px 3px 3px;
-    background-color: #fbdd83;
+    width:fit-content;
+    padding: 3px 6px 3px 3px;
     border:1px solid black;
     text-align: center;
 }
@@ -53,8 +50,4 @@ table {
 .priceBox {
     width: fit-content;
     width: 50%;
-}
-nav {
-    background-color: #06d6a0;
-    width: 100%;
 }

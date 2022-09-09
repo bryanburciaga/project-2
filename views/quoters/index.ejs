@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <title>Quoter</title>
 </head>
@@ -12,48 +13,50 @@
     <%- include('../partials/nav.ejs') %>
 </nav>
 <h1>Quoter</h1><hr>
+<p>Quote for:
+     <input type="box" placeholder="name of the requester">
+    <input type="submit"></p>
+
 <div class="box">
 <body>
-    <main>
     
-    <p>Quote for:
-         <input type="box" placeholder="name of the requester">
-        <input type="submit"></p>
-        <div class="print">
-            <button onclick="downloadPDF()">
-                print
-            </button>
-        </div>
-    
-        <div class="containerOne" id="pdf-area">
-            <table>
-            <tr>
-                <th>Date</th>
-                <th>Number of Product</th>
-                <th>Product</th>
-                <th>Qty</th>
-                <th>Price</th>
-                <th>Total</th>
-              </tr>
-              <tr>
-                <% products.forEach((product, i) => { %>
+    <div class="containerOne" id="pdf-area">
+        <%- include('../partials/nav.ejs') %>
+        <table>
+            
+            <th>Number of Product</th>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+            
+            <% products.forEach((product, i) => { %>
+                <tr>
                     
-                    <td> <%= product.date %> </td>
                     <td> <%= i + 1 %> </td>
+                    <td> <%= product.date %> </td>
                     <td><a href="/quoters/<%= product._id %>">
-                            <%= product.product %>
-                        </a></td>
-                <td><%= product.qty %></td>
-                <td>$ <%= product.price %></td>
-                <td>$ <%= product.price * product.qty %></td>
-                <% }); %>  
-            </table>
+                        <%= product.product %>
+                    </a></td>
+                    <td><%= product.qty %></td>
+                    <td>$ <%= product.price %></td>
+                    <td>$ <%= product.price * product.qty %></td>
+                    <% }); %>  
+                    <a href="/quoter/new">Add product</a>
+                </table>
+                <label>Total: <%= total %></label>
+                <div class="print">
+                    <button onclick="downloadPDF()">
+                        print
+                    </button>
+                </div>
+            </div>
         </div>
-        </div>
-              </tr>
-              <a href="/quoter/new">Add product</a>
-              <br />
-              <!-- <a href="#">Reset</a>
+    </tr>
+    
+    <br />
+    <!-- <a href="#">Reset</a>
               <br />
               <br />
               <form>
@@ -80,5 +83,4 @@
         }
     </script>
 </body>
-
 </html>
