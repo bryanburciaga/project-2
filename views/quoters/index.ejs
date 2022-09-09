@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <title>Quoter</title>
 </head>
 <nav>
@@ -18,9 +19,13 @@
     <p>Quote for:
          <input type="box" placeholder="name of the requester">
         <input type="submit"></p>
-   
+        <div class="print">
+            <button onclick="downloadPDF()">
+                print
+            </button>
+        </div>
     
-        <div class="containerOne">
+        <div class="containerOne" id="pdf-area">
             <table>
             <tr>
                 <th>Date</th>
@@ -42,7 +47,8 @@
                 <td>$ <%= product.price %></td>
                 <td>$ <%= product.price * product.qty %></td>
                 <% }); %>  
-            </div>
+            </table>
+        </div>
         </div>
               </tr>
               <a href="/quoter/new">Add product</a>
@@ -60,25 +66,19 @@
               
 </div>    
 </form>
-<div class="print">
-    <button>
-        print
-    </button>
-</div>
+
  
     
     </div>
     <%- include('../partials/footer.ejs') %> 
-    <!-- <script>
-        const existing = window.localStorage.getItem("products")
-
-        const newProduct = [{ product: 'product 1', qty: 200 }]
-
-        const allProducts = [...JSON.parse(existing), newProduct]
-        
-        window.localStorage.setItem("products", JSON.stringify(allProducts))
-
-    </script> -->
+    <script>
+        const element = document.getElementById("pdf-area");
+        function downloadPDF() {
+            window.html2pdf().from(element).toPdf().get('pdf').then(function (pdf) {
+              window.open(pdf.output('bloburl'), '_blank');
+            });
+        }
+    </script>
 </body>
 
 </html>

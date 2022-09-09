@@ -5,12 +5,20 @@ const router = express.Router();
 const Sale = require('../models/sale');
 
 // INDEX
-router.get('/sales', (req, res) => {
-    Sale.find({}, (err, sales) => {
-        res.render('sales/index.ejs', {
-            'sales': sales
-         });
+router.get('/sales', async (req, res) => {
+    const sales = await Sale.find({});
+
+    const totals = sales.map(sale => {
+        const total = sale.price * sale.qty;
+        return total;
     });
+
+    const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
+
+    res.render('sales/index.ejs', {
+        sales: sales,
+        total: grandTotal,
+     });
 });
 
 // NEW

@@ -3,11 +3,24 @@ const express = require('express');
 const { findOneAndDeLete } = require('../models/quoter');
 const router = express.Router();
 const Product = require('../models/quoter');
+const Sale = require('../models/sale');
 
 
 // Home page
-router.get('/', (req, res) => {
-    res.render('index.ejs');
+router.get('/', async (req, res) => {
+    const sales = await Sale.find({});
+
+    const totals = sales.map(sale => {
+        const total = sale.price * sale.qty;
+        return total;
+    });
+
+    const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
+
+    res.render('index.ejs',{
+        total: grandTotal,
+        itemsCount: totals.length
+    });
 });
 
 // INDEX
@@ -47,7 +60,11 @@ router.post('/quoter', (req, res) => {
 });
 
 // EDIT 
-
+router.get('/quoter', (req, res) => {
+    Product.findById(req.params.id, (err, foundProduct) => {
+        res.render('quoters/edit.ejs');
+    });
+});
 
 // SHOW
 router.get('/quoters/:id', (req, res) => {

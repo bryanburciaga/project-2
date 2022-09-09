@@ -13,18 +13,17 @@
  
     <h1>Sales</h1>
     <table>
-        <tr>
+        
             <th>Date</th>
             <th>Number of Sale</th>
             <th>Product</th>
             <th>Qty</th>
             <th>Price</th>
             <th>Total</th>
-        </tr>
-        <ul></ul>
-        <tr>
-            
+        
+        
             <% sales.forEach((s, i) => { %>
+                <tr>
            <td><%= s.date %></td>
            <td><%= i + 1  %></td>
                 <td><a href="/sales/<%=s._id%>">
@@ -32,13 +31,12 @@
                 </a></td>
                     <td><%=s.qty%></td>
                     <td>$<%=s.price%></td>
-                    <td>$<%=s.qty * s.price%></td>
+                    <td>$<%=s.qty * s.price%></td>    
+                </tr>
                     <% }); %>
-                
-        </tr>
     </ol>
     </table>
-    <label>Total:
+    <label>Total: <%= total %>
     </label>
 
     <form action="/sales/new">

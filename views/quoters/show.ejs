@@ -15,12 +15,13 @@
     <p>Product:<%= product.product %></p>
     <p>Price:<%= product.price %></p>
     <p>Qty:<%= product.qty %></p>
+    <p>Total: <%= product.price * product.qty %></p>
     <p>Date: <strong><%= product.date %></strong></p>
   
 <form action="/quoter/<%= product._id %>?_method=DELETE" method="POST">
     <input type="submit" value="Delete this product">
 </form>
-
+<a href="<%= product._id %>/edit">Edit</a>
 <a href="/quoter">Back to quoter</a>
 <%- include('../partials/footer.ejs') %> 
 </body>

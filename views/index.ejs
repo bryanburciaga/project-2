@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/homepage.css">
     <link rel="stylesheet" href="/css/footer.css">
     <title>To-Do App</title>
 </head>
 <body>
     <%- include('./partials/nav.ejs') %> 
-
- 
     </h5>
     <h1>Welcome To-Do app</h1>
     <div class="containerOne">
-    <a href="sales/">Sales</a>
+    <a href="sales/" class="btn btn-primary">Sales</a>
     </div>
     <div class="containerTwo">
         <a href="quoter/">Quoter</a>
     </div>
-    <%- include('./partials/footer.ejs') %> 
+    <h1>Se ha generado un total de $<%= total %> de <%= itemsCount %> artículos</h1>
+    <%- include('./partials/footer.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
