@@ -3,6 +3,7 @@ const express = require('express');
 const { findOneAndDelete } = require('../models/sale');
 const router = express.Router();
 const Sale = require('../models/sale');
+const Stock = require('../models/stock');
 
 // INDEX
 router.get('/sales', async (req, res) => {

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock</title>
+</head>
+<body>
+    <h1>Stock</h1>
+    <h3>Products</h3>
+    <p>Create a product</p>
+    <form action="/stock" method="POST">
+        <label>Product
+            <input type="text" name="product">
+        </label></br>
+        <label>Price
+            <input type="text" name="price">
+        </label></br>
+        <label>Qty
+            <input type="text" name="qty">
+        </label></br>
+   
+        <input type="submit" value="Create a product">
+    </form>
+
+
+    <table>
+        
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Price</th>
+        
+        <% stocks.forEach(stocks => { %>
+        <tr>
+            <td><%= stocks.product %></td>
+            <td><%= stocks.price %></td>
+            <td><%= stocks.qty %></td>
+        </tr>
+        <% });%>
+    </table> 
+    
+    <a href="/stock/new">Create a new product</a>
+    
+<q><fieldset></fieldset></q>
+</body>
+</html>  

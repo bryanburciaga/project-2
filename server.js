@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const productsRouter = require('./controllers/quoters');
 const salesRouter = require('./controllers/sales');
+const stocksRouter = require('./controllers/stocks');
 // initialize the app
 const app = express();
 const methodOverride = require('method-override');
@@ -28,6 +29,7 @@ app.use(express.urlencoded({ extended: false}));
 app.use(methodOverride('_method'));
 app.use(productsRouter);
 app.use(salesRouter);
+app.use(stocksRouter);
 // const salesControllers = require('./controllers/sales');
 // app.use('/sales', salesControllers);
 
