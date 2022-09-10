@@ -12,12 +12,11 @@
 <nav>
     <%- include('../partials/nav.ejs') %>
 </nav>
-<h1>Quoter</h1><hr>
+<h1>Quoter</h1>
 <p>Quote for:
-    <form action="/quoter" method="POST">
     <input type="box" placeholder="name of the requester">
     <input type="submit"></p>
-    </form>
+    
     
 <div class="box">
 <body>
@@ -25,6 +24,7 @@
     <div class="containerOne" id="pdf-area">
         <img src="https://i.imgur.com/QuS0A2q.jpg" alt=""  width="50" height="50">
         <p>Quote for: </p>
+        <p>Quote from: Química Durango</p>
         <table>
             <th>ID</th>
             <th># of Product</th>
@@ -50,12 +50,12 @@
                     <label><strong> Total: </strong>  <%= total + taxes %> </label><br>
                 </div>
             </div>
-            <a href="/quoter/new">
-                <input type="submit" value="Add a product">
+            <a href="/quoter/new" class="btn btn-primary">
+                Add a product
             </a>
             <div class="print">
             <button onclick="downloadPDF()">
-                print
+                PRINT
             </button>
         </div>
     </div>
