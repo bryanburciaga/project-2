@@ -1,16 +1,14 @@
 h1 {
     text-align: center;
 }
-hr {
-    margin: 0 0 20px 0;
-}
+
 .box {
     border-radius: 20px;
     height: fit-content;
     border-width: 1px;
     border-style: solid;
     border-color: black;
-    margin: 0;
+    margin: 0 20px 0 20px;
     padding: 20px; 
     line-height: 1.5em; 
 }
@@ -43,11 +41,11 @@ table {
     margin: 0 0 10px 0;
     bottom: 0;
 }
-.editButtons {
-   text-align:  end;
-    word-spacing: 1em;
-}
+
 .totals {
     text-align: end;
     bottom: 0%;
+}
+.addButon {
+    text-align: center;
 }

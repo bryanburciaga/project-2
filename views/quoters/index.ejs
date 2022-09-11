@@ -23,11 +23,11 @@
     
     <div class="containerOne" id="pdf-area">
         <img src="https://i.imgur.com/QuS0A2q.jpg" alt=""  width="50" height="50">
+        <p>Date:<%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %> </p>
         <p>Quote for: </p>
         <p>Quote from: Química Durango</p>
         <table>
             <th>ID</th>
-            <th>date</th>
             <th># of Product</th>
             <th>Product</th>
             <th>Qty</th>
@@ -37,7 +37,6 @@
             <% products.forEach((product, i) => { %>
                 <tr>
                     <td><%= product._id%></td>
-                    <td><%=product.date%></td>
                     <td> <%= i + 1 %> </td>
                     <td><a href="/quoter/<%= product._id %>">
                         <%= product.product %>
@@ -45,13 +44,22 @@
                     <td>$ <%= product.price %></td>
                     <td>$ <%= product.price * product.qty %></td>
                     <% }); %>  
+                    </tr><hr>
+                    <tr>
+                        <td><strong>Subotal: </strong></td><br>
+                        <td> <%= total %> </td>
+                    </tr>
+                    <tr>
+                        <td><strong> Taxes: </strong></td><br>
+                        <td> <%= taxes %></td>
+                    </tr>
+                    <tr>
+                        <td><strong> Total: </strong> </td><br>
+                    <td> <%= total + taxes %> </td>
+                    </tr>    
+                </div>             
                 </table>
-                <div class="totals">
-                    <label><strong>Subotal: </strong> <%= total %> </label><br>
-                    <label><strong> Taxes: </strong> <%= taxes %></label><br>
-                    <label><strong> Total: </strong>  <%= total + taxes %> </label><br>
-                </div>
-            </div>
+          
             <a href="/quoter/new" class="btn btn-primary">
                 Add a product
             </a>
