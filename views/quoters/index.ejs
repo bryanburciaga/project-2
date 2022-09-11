@@ -14,8 +14,8 @@
 </nav>
 <h1>Quoter</h1>
 <p>Quote for:
-    <input type="box" placeholder="name of the requester">
-    <input type="submit"></p>
+    <input type="box" placeholder="name of the requester"></p>
+  
     
     
 <div class="box">
@@ -27,6 +27,7 @@
         <p>Quote from: Química Durango</p>
         <table>
             <th>ID</th>
+            <th>date</th>
             <th># of Product</th>
             <th>Product</th>
             <th>Qty</th>
@@ -36,6 +37,7 @@
             <% products.forEach((product, i) => { %>
                 <tr>
                     <td><%= product._id%></td>
+                    <td><%=product.date%></td>
                     <td> <%= i + 1 %> </td>
                     <td><a href="/quoter/<%= product._id %>">
                         <%= product.product %>
@@ -58,24 +60,7 @@
                 PRINT
             </button>
         </div>
-    </div>
-    <!-- <a href="#">Reset</a>
-              <br />
-              <br />
-              <form>
-                <select id="addFormProduct">
-                    <option>Product 1</option>
-                </select>
-                <input id="addFormInput" type="number" value="Quantity"/>
-              </form>
-              <button onclick="save();">Add new product</button> -->
-              
-</div>    
-</form>
-
- 
-    
-    </div>
+    </div>           
     <%- include('../partials/footer.ejs') %> 
     <script>
         const element = document.getElementById("pdf-area");

@@ -51,13 +51,9 @@ router.get('/quoter', async (req, res) => {
 
 // NEW
 router.get('/quoter/new', (req, res) => {
-    Product.find({}, (err, products) => {
-    //     console.log(products)
-    res.render('quoters/new.ejs', {
-        'products': products
-        });
-    });
+    res.render('quoters/new.ejs');
 });
+
 
 // DELETE
 router.delete('/quoter/:id', (req, res) => {
@@ -75,11 +71,11 @@ router.put('/quoter/:id', (req, res) => {
 
 
 // CREATE
-router.post('/quoter', (req, res) => {
+router.post(('/quoter'), (req, res) => {
     Product.create(req.body, (err, createdProduct) => {
-        res.redirect('/quoter');
-    });
-});
+     res.redirect('/quoter');
+    });    
+ });
 
 // EDIT 
 router.get('/quoter/:id/edit', (req, res) => {

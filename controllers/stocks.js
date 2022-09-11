@@ -23,7 +23,7 @@ router.get('/stock', (req, res) => {
 // Create
 router.post(('/stock'), (req, res) => {
     Stock.create(req.body, (err, createdStock) => {
-        res.render('/stocks');
+        res.redirect('/stock');
     });
 });
 
