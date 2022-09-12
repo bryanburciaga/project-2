@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 
     const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
 
-    res.render('index.ejs',{
+    res.render('index.ejs', {
         total: grandTotal,
         itemsCount: totals.length
     });

@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const productsRouter = require('./controllers/quoters');
 const salesRouter = require('./controllers/sales');
 const stocksRouter = require('./controllers/stocks');
+const expensesRouter = require('./controllers/expenses');
+const balancesRouter = require('./controllers/balances');
 // initialize the app
 const app = express();
 const methodOverride = require('method-override');
@@ -30,6 +32,8 @@ app.use(methodOverride('_method'));
 app.use(productsRouter);
 app.use(stocksRouter);
 app.use(salesRouter);
+app.use(expensesRouter);
+app.use(balancesRouter);
 // const salesControllers = require('./controllers/sales');
 // app.use('/sales', salesControllers);
 

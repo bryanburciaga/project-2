@@ -4,7 +4,7 @@ const { get } = require('mongoose');
 const router = express.Router();
 const Sale = require('../models/sale')
 const Stock = require('../models/stock');
-
+const stock = require('../models/stock');
 
 // Index
 router.get('/stock', (req, res) => {
@@ -32,7 +32,7 @@ router.delete('/stock/:id', (req, res) => {
 // Update
 router.put('/stock/:id', (req, res) => {
     Stock.findOneAndUpdate(req.params.id, req.body, (err, oldStockVersion) => {
-        res.redirect('/stock/');
+        res.redirect('/stock');
     });
 });
 

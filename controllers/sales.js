@@ -13,19 +13,11 @@ router.get('/sales', async (req, res) => {
         const total = sale.price * sale.qty;
         return total;
     });
-    
-    const stocks = await Stock.find({});
-
-    const options = stocks.map(stock => {
-        const stocks = stock._id;
-    });
-
-    
     const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
-
-    res.render('sales/index.ejs', {
-        sales: sales,
+    res.render('sales/index.ejs', { 
         total: grandTotal,
+        sales: sales
+        
      });
 });
 
