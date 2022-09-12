@@ -16,9 +16,9 @@ Tecnologies used
 ![Quoter](https://i.imgur.com/rgqOoPh.png)
 ![Stock](https://i.imgur.com/YLqkNbK.png)
 ![Expenses](https://i.imgur.com/SvqM1rF.png)
-![Balance]([https://i.imgur.com/QdfnjGI.png)
 
-<a href="https://project-2bryan.herokuapp.com/" target="_blank">Click here</a> to see the code in <a href="https://github.com/bryanburciaga/project-2" target="_blank">git hub</a>
+
+<a href="https://project-2bryan.herokuapp.com/" target="_blank">Click here</a> to go to the Website or click hereto see the code in <a href="https://github.com/bryanburciaga/project-2" target="_blank">git hub</a>
 
 
 Future Enhancements
