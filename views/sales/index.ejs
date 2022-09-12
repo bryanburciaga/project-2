@@ -26,7 +26,7 @@
         
             <% sales.forEach((s, i) => { %>
                 <tr>
-           <td>Date:<%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %> </td>
+           <td><%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %> </td>
            <td><%= i + 1  %></td>
                 <td><a href="/sales/<%=s._id%>">
                     <%= s.product %>
@@ -39,7 +39,7 @@
                     </td> 
                     <td>
                         <form action="/sales/<%=s._id%>?_method=DELETE " method="POST">
-                        <input type="submit" value="Delete this product">
+                        <input type="submit" value="X">
                     </form>
                 </td>
                 </tr>

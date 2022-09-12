@@ -27,7 +27,6 @@
         <p>Quote for: </p>
         <p>Quote from: Química Durango</p>
         <table>
-            <th>ID</th>
             <th># of Product</th>
             <th>Product</th>
             <th>Qty</th>
@@ -36,7 +35,6 @@
             
             <% products.forEach((product, i) => { %>
                 <tr>
-                    <td><%= product._id%></td>
                     <td> <%= i + 1 %> </td>
                     <td><a href="/quoter/<%= product._id %>">
                         <%= product.product %>
