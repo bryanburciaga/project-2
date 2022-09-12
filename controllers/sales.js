@@ -13,7 +13,14 @@ router.get('/sales', async (req, res) => {
         const total = sale.price * sale.qty;
         return total;
     });
+    
+    const stocks = await Stock.find({});
 
+    const options = stocks.map(stock => {
+        const stocks = stock._id;
+    });
+
+    
     const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
 
     res.render('sales/index.ejs', {
@@ -38,7 +45,7 @@ Sale.findByIdAndDelete(req.params.id, (err, deletedSale) => {
 // UPDATE
 router.put('/sales/:id', (req,res) => {
     Sale.findOneAndUpdate(req.params.id, req.body, (err, oldSaleVersion) => {
-        res.redirect('/sales/' + req.params.id);
+        res.redirect('/sales/');
     });
 });
 
@@ -59,11 +66,11 @@ router.get('/sales/:id/edit', (req, res) => {
 });
 
 // SHOW
-router.get('/sales/:id', (req, res) => {
-    Sale.findById(req.params.id, (err, foundSale) => {
-        res.render('sales/show.ejs', { sale: foundSale })
-    });
-});
+// router.get('/sales/:id', (req, res) => {
+//     Sale.findById(req.params.id, (err, foundSale) => {
+//         res.render('sales/show.ejs', { sale: foundSale })
+//     });
+// });
 
 
 

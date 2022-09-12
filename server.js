@@ -28,8 +28,8 @@ db.on('error,', (err) => console.log('MongoDB Error' + err.message));
 app.use(express.urlencoded({ extended: false}));
 app.use(methodOverride('_method'));
 app.use(productsRouter);
-app.use(salesRouter);
 app.use(stocksRouter);
+app.use(salesRouter);
 // const salesControllers = require('./controllers/sales');
 // app.use('/sales', salesControllers);
 

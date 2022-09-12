@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit the product</title>
+</head>
+<body>
+    <nav>
+        <%- include('../partials/nav.ejs') %>
+    </nav>
+    
+    <h1>Edit the product</h1>
+    <form action="/stock/<%= stock._id %>?_method=PUT" method="POST">
+        <label>Product:
+            <input type="text" name="product" value=" <%= stock.product %>">
+        </label>
+        <label>Price:
+            <input type="text" name="price" value="<%= stock.price %>">
+        </label>
+        <label>Qty:
+            <input type="text" name="qty" value="<%= stock.qty %>">
+        </label>
+        <input type="submit" value="Edit">
+    </form>
+    <%- include('../partials/footer.ejs') %> 
+    <a href="/stock/">Back to stock</a>
+</body>
+</html>
