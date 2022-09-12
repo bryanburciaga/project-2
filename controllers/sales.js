@@ -3,6 +3,7 @@ const express = require('express');
 const { findOneAndDelete } = require('../models/sale');
 const router = express.Router();
 const Sale = require('../models/sale');
+const stock = require('../models/stock');
 const Stock = require('../models/stock');
 
 // INDEX
@@ -13,13 +14,22 @@ router.get('/sales', async (req, res) => {
         const total = sale.price * sale.qty;
         return total;
     });
+    const stocks = await Stock.find({});
+
+    const stockTotals = stocks.map(stock => {
+        const stockTotal = stock.qty;
+        return stockTotal;
+    });
+    
+    const grandStockTotal = stockTotals.reduce((partialSum, a) => partialSum + a, 0);
     const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
     res.render('sales/index.ejs', { 
         total: grandTotal,
-        sales: sales
-        
+        sales: sales,
+        stockTotal: grandStockTotal
+    });
      });
-});
+
 
 // NEW
 router.get('/sales/new', (req, res) => {
