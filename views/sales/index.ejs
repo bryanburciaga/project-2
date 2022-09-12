@@ -17,7 +17,7 @@
  
     <table>
         <th>Date</th>
-        <th>Number of Sale</th>
+        <th>#</th>
             <th>Product</th>
             <th>Qty</th>
             <th>Price</th>
@@ -26,7 +26,9 @@
         
             <% sales.forEach((s, i) => { %>
                 <tr>
+                <div class="date">
            <td><%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %> </td>
+                </div>
            <td><%= i + 1  %></td>
                 <td><a href="/sales/<%=s._id%>">
                     <%= s.product %>

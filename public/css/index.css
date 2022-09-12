@@ -9,32 +9,28 @@ h1 {
     border-style: solid;
     border-color: black;
     margin: 0 20px 0 20px;
-    padding: 20px; 
+    padding: 10px; 
     line-height: 1.5em; 
 }
 
 table {
     width: 100%;
-    padding: 0px 6px 0x 1px;
-    text-align: center;
-    margin: 0;
+    text-align: center;  
 }
 
 .button {
    text-align: end;
    padding: 20px;
 }
-
 .print {
     text-align: center;
     margin: 0 0 10px 0;
     bottom: 0;
+    padding: 60px;
+}
+.nav {
+    padding: 1px 0 1px 0;
+    display: flex;
+    padding-top: 100;
 }
 
-.totals {
-    text-align: end;
-    bottom: 0%;
-}
-.addButon {
-    text-align: center;
-}

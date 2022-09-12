@@ -14,20 +14,18 @@
 </nav>
 <h1>Quoter</h1>
 <p>Quote for:
-    <input type="box" placeholder="name of the requester"></p>
-  
-    
-    
+    <input type="box" placeholder="name of the requester"></p> 
 <div class="box">
 <body>
-    
     <div class="containerOne" id="pdf-area">
-        <img src="https://i.imgur.com/QuS0A2q.jpg" alt=""  width="50" height="50">
+        <table>
+            <div class="nav">
+        <img src="https://i.imgur.com/QuS0A2q.jpg" alt=""  width="25" height="25">
         <p>Date:<%= new Date().getDate()  %>/<%= new Date().getMonth() %>/<%= new Date().getFullYear() %> </p>
         <p>Quote for: </p>
         <p>Quote from: Química Durango</p>
-        <table>
-            <th># of Product</th>
+    </div>
+            <th>#</th>
             <th>Product</th>
             <th>Qty</th>
             <th>Price</th>
@@ -43,21 +41,31 @@
                     <td>$ <%= product.price * product.qty %></td>
                     <% }); %>  
                     </tr>
+                    <div class="totals">
                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td><strong>Subotal: </strong></td><br>
-                        <td> <%= total %> </td>
+                        <td> $<%= total * .84 %> </td>
                     </tr>
                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td><strong> Taxes: </strong></td><br>
-                        <td> <%= taxes %></td>
+                        <td> $<%= taxes %></td>
                     </tr>
                     <tr>
-                        <td><strong> Total: </strong> </td><br>
-                    <td> <%= total + taxes %> </td>
-                    </tr>    
-                </div>             
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <th> Total:  </th><br>
+                    <td> $<%= (total * .84) + taxes %> </td>
+                    </tr>
+                </div>    
                 </table>
-          
+            </div>             
             <a href="/quoter/new" class="btn btn-primary">
                 Add a product
             </a>
