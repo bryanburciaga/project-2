@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+}
+
+.box {
+    border-radius: 20px;
+    height: fit-content;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin: 0 20px 0 20px;
+    padding: 20px; 
+    line-height: 1.5em; 
+}
+
+table {
+    width: 100%;
+    padding: 10px 6px 10x 1px;
+    text-align: center;
+    margin: 0;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 20px;
+}
+

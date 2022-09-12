@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/stockindex.css">
+    <link rel="stylesheet" href="/css/balancesindex.css">
     <link rel="stylesheet" href="/css/footer.css">
     <title>Stock</title>
     <%- include('../partials/nav.ejs') %> 
@@ -13,15 +13,16 @@
 </head>
 <body>
     <h1>Balance</h1>
+    <div class="box">
+        <div class="boxOne">
     <table>
         <th>#</th>
         <th>Sales</th>
         <th>Cost</th>
         <th>Taxes</th>
-        <td>Total</td>
+        <th>Total</th>
         <th>Revenue</th>
-       
-        
+
         <tr>
             <td>Product 1</td>
             <td> <%= total  %> </td>
@@ -30,7 +31,21 @@
             <td><%= total * 1.16  %> </td>
             <td><%= total * .30  %> </td>
         </tr>
+    </div>
+    <div class="boxTwo">
     </table>
+    <table>
+        <th>#</th>
+        <th>Expenses</th>
+        <th>Total</th>
+        <tr>
+            <td>Expense</td>
+            <td> <%= expenseTotal  %> </td>
+            <td><%= expenseTotal  %> </td>
+        </tr>
+    </table>
+</div>
+</div>
     <%- include('../partials/footer.ejs') %> 
 </body>
 </html>

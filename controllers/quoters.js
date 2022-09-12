@@ -10,18 +10,7 @@ const Sale = require('../models/sale');
 
 // Home page
 router.get('/', async (req, res) => {
-    const sales = await Sale.find({});
-
-    const totals = sales.map(sale => {
-        const total = sale.price * sale.qty;
-        return total;
-    });
-
-    const grandTotal = totals.reduce((partialSum, a) => partialSum + a, 0);
-
     res.render('index.ejs', {
-        total: grandTotal,
-        itemsCount: totals.length
     });
 });
 
